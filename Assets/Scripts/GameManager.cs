@@ -24,8 +24,8 @@ public class GameManager : MonoBehaviour
     public void CompleteLevel()
     {
         completeLevelUI.SetActive(true);
-        //StartCoroutine(IO.AddToList((int)finalScore.totalPoints));
-        //StartCoroutine(ShowHighScore());       
+        StartCoroutine(IO.AddToList((int)finalScore.totalPoints));
+        StartCoroutine(ShowHighScore());       
     }
 
     public IEnumerator ShowHighScore()
