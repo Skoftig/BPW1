@@ -122,4 +122,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveAble: 0
-  rb: {fileID: 7429670567217792580}
+  anim: {fileID: 0}

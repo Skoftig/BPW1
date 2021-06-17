@@ -13,6 +13,7 @@ public class Obstacle : MonoBehaviour
         if (moveAble == true)
         {
             anim.SetTrigger("Move");
+            Debug.Log("hallo");
         }
     }
 

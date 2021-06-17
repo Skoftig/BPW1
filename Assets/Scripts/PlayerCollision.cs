@@ -6,6 +6,8 @@ public class PlayerCollision : MonoBehaviour
     public Score pickupScore;
     public PlayerMovement movement;
     public float pickupValue = 1000;
+
+    private IO highscoreUpdate = new IO();
     
     void OnCollisionEnter(Collision collisionInfo)
     {
@@ -14,6 +16,10 @@ public class PlayerCollision : MonoBehaviour
         if(collisionInfo.collider.tag == "Obstacle")
         {
             movement.enabled = false; //disables players movement when hitting an obstacle
+
+            //highscoreUpdate.highscore.Add((int)pickupScore.totalPoints);
+            //highscoreUpdate.AddToList((int)pickupScore.totalPoints);
+            //highscoreUpdate.WriteHighScore();
 
             FindObjectOfType<GameManager>().EndGame();
             

@@ -8,30 +8,63 @@ public class IO : MonoBehaviour
 {
     [HideInInspector]
     public List<int> highscore = new List<int>();
-    private string filePath = "Assets/Highscore.txt";
+    public string filePath = "Assets/Resources/Highscore.txt";
+    public Score totalPoints;
+    
 
 
-    /// <summary>
-    /// this function writes the game highscore.
-    /// </summary>
+
+
     public void WriteHighScore()
     {
+
+
         using (StreamWriter sw = new StreamWriter(filePath))
         {
             for (int i = 0; i < highscore.Count; i++)
             {
                 sw.WriteLine(highscore[i].ToString());
+
             }
+
+
 
         }
 
         AssetDatabase.Refresh();
     }
 
-    public List<int> ReadHighScore()
+    public IEnumerator AddToList(int value)
+    {
+        highscore.Add(value);
+        yield return new WaitForSeconds(1);
+
+        WriteHighScore();
+
+        yield return new WaitForSeconds(1);
+        
+    }
+
+    public string GetScores()
+    {
+        string Temp = string.Empty;
+
+        for (int i = 0; i < highscore.Count; i++)
+        {
+            Temp += (i + 1).ToString() + ". " + highscore[i] + "\n";
+        }
+
+        return Temp;
+    }
+
+    public void ReadHighScore()
     {
         string line = "";
-        highscore = new List<int>();
+
+
+
+        if (File.Exists(filePath))
+        {
 
         using (StreamReader sr = new StreamReader(filePath))
         {
@@ -46,6 +79,21 @@ public class IO : MonoBehaviour
             }
         }
 
-      return highscore;
+    }
+
+
+    highscore.Sort();
+
+        for (int i = 0; i < highscore.Count; i++)
+        {
+            Debug.Log(highscore[i]);
+        }
+        
+        highscore.Reverse();
+
+        for (int i = 0; i < highscore.Count; i++)
+        {
+            Debug.Log(highscore[i]);
+        }
     }
 }
