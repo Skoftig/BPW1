@@ -10,6 +10,17 @@ public class PlayerMovement : MonoBehaviour
     public bool inCoroutine = false;
     public float speed;
 
+
+    /// <summary>
+    /// Seeing as this is an endless runner the player always moves forward on the z axis without any player input.
+    /// Initially, I used AddForce for the controls as well, but this was eventually changed to MovePosition to make prevent
+    /// the player character from sliding forward once the wsad keys were released. Using MovePosition made the controls much
+    /// more responsive. 
+    /// the speed at which the player moves is a public float so i could easily edit this value in the Unity Editor.
+    /// I also added a way to check if the player fell off the level by checking their position on the y-axis. If this value
+    /// falls below -1, the game resets.
+    /// </summary>
+
     // marked this as 'Fixed'Update because we are using it to mess with physics
     void FixedUpdate()
     {

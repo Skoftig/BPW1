@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5761888946307131847}
   - component: {fileID: 5320518319300390443}
   - component: {fileID: 2876515518772610676}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BubbleParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

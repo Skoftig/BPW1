@@ -7,6 +7,13 @@ public class FollowPlayer : MonoBehaviour
     private Vector3 offset;
     public float yOffset;
 
+
+    /// <summary>
+    /// this script is for the Main camera to follow the player's position. This is done by making the camera's position
+    /// equal to that of the player, with an offset added on the y-axis. This offset is a public float to make it 
+    /// easily accessible in the Unity Editor.
+    /// </summary>
+
     // Update is called once per frame
     void Update()
     {

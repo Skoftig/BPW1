@@ -11,7 +11,13 @@ public class Score : MonoBehaviour
     public float playerPoints = 0;
     public float totalPoints = 0;
 
-    // Update is called once per frame
+
+
+    /// <summary>
+    /// Player points is equal to the players position on the z-axis. These points are added to the scorePoints
+    /// that keep track of the pickup value. Together these form the totalPoints, which are displayed in the scoreText
+    /// of the level end UI
+    /// </summary>
     void Update()
     {
         playerPoints = player.position.z;
@@ -20,5 +26,3 @@ public class Score : MonoBehaviour
         scoreText.text = totalPoints.ToString("0");
     }
 }
- // player points is gelijk aan player Z positie, die wordt opgeteld bij de scorePoints die de pickup bijhoud. 
- //deze vormen samen de totalPoints, die word weergegeven in scoreText. 

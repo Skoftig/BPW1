@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 1954569260}
   - component: {fileID: 1954569259}
   m_Layer: 5
-  m_Name: Cubeshit
+  m_Name: Shark Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8962264, g: 0.116175756, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.46748385, b: 0.8584906, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -792,7 +792,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SHARK
+  m_Text: SHARK ATTACK
 --- !u!222 &1954569260
 CanvasRenderer:
   m_ObjectHideFlags: 0

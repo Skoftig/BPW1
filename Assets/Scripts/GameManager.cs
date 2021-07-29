@@ -12,33 +12,46 @@ public class GameManager : MonoBehaviour
     public Score finalScore;
     public Text scoreText;
 
-    
+
     private void Start()
     {
         IO.ReadHighScore();
     }
 
+    /// <summary>
+    /// here i tell the game manager to take the complete level ui i made and enable it on a completed level
+    /// I also add the highscore to the list using the IO.AddToList, then i save it to the list using the WriteHighScore
+    /// </summary>
 
-    //here i tell the game manager to take the complete level ui i made and enable it on a completed level
-    //I also add the highscore to the list using the IO.AddToList, then i save it to the list using the WriteHighScore
     public void CompleteLevel()
     {
         completeLevelUI.SetActive(true);
         StartCoroutine(IO.AddToList((int)finalScore.totalPoints));
-        StartCoroutine(ShowHighScore());       
+        StartCoroutine(ShowHighScore());
+
     }
+
+
+    /// <summary>
+    /// Here I set the Highscore UI to be that of the IO.GetScores. IEnumerator is an asynchronised function.
+    /// WaitForSeconds is used to give the player some delay time to actually read the scores before the nect level is loaded.
+    /// Debug.Break is used to pause the game when the highscore UI got displayed, this was used during the testing of this code.
+    /// </summary>
 
     public IEnumerator ShowHighScore()
     {
         yield return new WaitForSeconds(1);
         scoreText.text = IO.GetScores();
-        
-        //completeLevelUI.SetActive(true);
-        //Debug.Break();
 
     }
 
-    //here i tell the game manager to invoke the restart with a slight delay added to give the player time to see the game over.
+
+    /// <summary>
+    /// In EndGame I tell the game manager to invoke the restart with a slight delay added to give the player 
+    /// time to see the game over.
+    /// In Restart the game manager reloads the current level after a game over.
+    /// </summary>
+
     public void EndGame()
     {
         if (gameHasEnded == false)
@@ -50,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    //here i tell the game manager to restart the current level after a game over
+
     void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
